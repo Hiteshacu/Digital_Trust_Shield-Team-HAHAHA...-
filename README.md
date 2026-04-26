@@ -103,8 +103,8 @@ sequenceDiagram
     App->>API: POST /api/chat
     API->>Tavily: Search the web
     Tavily-->>API: Search results and snippets
-    API->>Groq: Summarize with sources
-    Groq-->>API: Final multilingual answer
+    API->>Gemini: Summarize with sources
+    Gemini-->>API: Final multilingual answer
     API-->>App: Answer and source list
 ```
 
@@ -169,8 +169,8 @@ MASTER_KEY=your_fernet_master_key
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=admin123
 TAVILY_API_KEY=your_tavily_key
-GROQ_API_KEY=your_groq_key
-GROQ_MODEL=llama-3.3-70b-versatile
+GEMINI_API_KEY=your_groq_key
+GEMINI_MODEL=your_gemini_model
 ```
 
 Do not commit real `.env` files or service account credentials.
