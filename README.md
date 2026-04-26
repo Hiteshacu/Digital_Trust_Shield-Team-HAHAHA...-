@@ -97,7 +97,7 @@ sequenceDiagram
     participant App as Android Chatbot
     participant API as FastAPI Backend
     participant Tavily as Tavily Search
-    participant Groq as Groq LLM
+    participant Gemini as Gemini LLM
 
     User->>App: Ask by text or voice
     App->>API: POST /api/chat
@@ -139,7 +139,7 @@ See [docs/PUBLICATION_POLICY.md](docs/PUBLICATION_POLICY.md) for details.
 | Mobile app | Android Kotlin, Jetpack Compose |
 | Database | Firebase Firestore |
 | Storage | Local storage fallback, Firebase Storage optional |
-| AI assistant | Tavily Search API, Groq Chat Completions |
+| AI assistant | Tavily Search API, Gemini Chat Completions |
 | Voice | Android Speech Recognizer |
 
 ## Demo Script
