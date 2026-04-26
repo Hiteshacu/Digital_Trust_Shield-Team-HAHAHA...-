@@ -1,6 +1,6 @@
 # API Overview
 
-This document describes the public API shape at a high level. It does not include private implementation details.
+This document describes the public API shape at a high level. The source code includes the hackathon implementation; secrets and runtime credentials are excluded.
 
 ## Health
 

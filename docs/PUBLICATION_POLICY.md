@@ -1,6 +1,6 @@
 # Publication Policy
 
-Digital Trust Shield contains security-sensitive implementation code. The public GitHub repository is intentionally limited to project documentation, architecture, demo flow, and non-secret configuration examples.
+Digital Trust Shield contains security-sensitive implementation code. This GitHub repository includes the hackathon source code, but excludes secrets, private keys, generated media, build outputs, and runtime data.
 
 ## Published
 
@@ -10,25 +10,21 @@ Digital Trust Shield contains security-sensitive implementation code. The public
 - Security model.
 - Environment variable examples.
 - High-level API descriptions.
+- Backend, admin portal, Android verifier, and core signing/verification source code.
 
 ## Not Published
 
 - Private keys and key backups.
 - Firebase service account credentials.
 - Runtime `.env` files.
-- Full signing and verification implementation.
-- DCT watermark embedding and extraction source code.
-- Screenshot recovery and registry matching implementation.
-- Android application source code.
-- Admin portal source code.
 - Generated QA datasets, screenshots, videos, payment images, and logs.
 
-## Why The Core Code Is Private
+## Why Secrets And Runtime Data Are Private
 
-The verification engine contains defensive logic for cryptographic proof extraction, resilient watermark recovery, registry matching, and screenshot handling. Publishing the full implementation would make it easier for attackers to study thresholds, build bypasses, or forge demo-specific artifacts.
+The project uses private keys, Firebase credentials, API keys, and real/generated media during development. These files must never be committed because they can expose accounts, leak personal data, or allow unauthorized signing.
 
-The public repository explains the architecture while keeping the sensitive engineering private.
+The source code is published for hackathon review, while operational secrets and runtime artifacts remain local.
 
 ## Safe Collaboration Model
 
-For reviewers, judges, or collaborators who need access to the private implementation, share it through a controlled private repository or direct review session rather than the public GitHub repository.
+For reviewers, judges, or collaborators, clone the repository and configure local `.env` values using the examples. Never request or share private keys through GitHub.

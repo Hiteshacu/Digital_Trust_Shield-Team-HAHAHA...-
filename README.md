@@ -2,7 +2,7 @@
 
 Digital Trust Shield is a hackathon prototype for verifying whether government posters, payment receipts, notices, PDFs, and shared screenshots are authentic or tampered.
 
-The public repository intentionally contains product documentation, architecture, demo flow, and integration notes only. The private cryptographic signing and watermarking implementation is not published.
+This repository includes the hackathon source code, architecture notes, API overview, admin portal, backend, Android verifier, and core signing/verification modules. Secrets, private keys, Firebase credentials, generated uploads, payment screenshots, videos, build outputs, and runtime logs are intentionally excluded.
 
 ## Why This Exists
 
@@ -114,32 +114,32 @@ sequenceDiagram
 - Private keys are encrypted and stored only on the backend machine.
 - Android app receives only public keys and verification responses.
 - Firestore stores authority metadata, public keys, signed-document metadata, verification logs, and audit logs.
-- The public repository does not expose the private watermarking, signing, extraction, or screenshot-recovery implementation.
+- Runtime secrets and private keys are excluded from GitHub and must be configured locally.
 
 ## Repository Publication Policy
 
-This GitHub version is designed for public demonstration. It intentionally excludes:
+This GitHub version includes the project code but intentionally excludes sensitive and generated assets:
 
 - RSA private keys and key backups.
 - Firebase service account credentials.
-- Full signing and watermarking source code.
-- Backend security-sensitive implementation files.
-- Android and web app source code.
 - Generated screenshots, payment images, QA artifacts, videos, and runtime logs.
 
 See [docs/PUBLICATION_POLICY.md](docs/PUBLICATION_POLICY.md) for details.
 
-## Public Code Samples
+## Code Structure
 
-This repository includes a small public-safe code slice so reviewers can see the project shape without exposing the sensitive cryptographic engine:
+The repository includes the main project code and a few lightweight public examples:
 
 | File | Purpose |
 | --- | --- |
+| `backend/` | FastAPI backend for signing, verification, Firestore metadata, local storage, and chatbot |
+| `admin-portal/` | React/Vite admin signing portal |
+| `android-verifier/` | Kotlin/Jetpack Compose Android verification app |
+| `sign_poster.py`, `verify_poster.py` | Core signing and verification entrypoints |
+| `watermark_embedder.py`, `watermark_extractor.py` | DCT watermark embed/extract modules |
 | `examples/backend_api_skeleton/main.py` | FastAPI route skeleton for health, signing, verification, and chatbot APIs |
 | `examples/backend_api_skeleton/schemas.py` | Public request/response DTO contracts |
 | `examples/android_verifier_shell/MainActivity.kt` | Android Compose shell showing verification and chatbot tabs |
-
-The private implementation files that perform RSA signing, DCT watermark embedding/extraction, screenshot recovery, and key handling are intentionally omitted.
 
 ## Tech Stack
 
@@ -170,7 +170,7 @@ The private implementation files that perform RSA signing, DCT watermark embeddi
 
 ## Environment Variables
 
-The private implementation uses environment variables similar to:
+The implementation uses environment variables similar to:
 
 ```env
 FIREBASE_CREDENTIALS=secrets/serviceAccountKey.json
@@ -189,7 +189,7 @@ Do not commit real `.env` files or service account credentials.
 
 ## Public Repository Note
 
-This repository is a public showcase version. The complete implementation is retained privately by the team for demo, evaluation, and further development.
+This repository is a hackathon source release. Do not commit local `.env` files, Firebase service account JSON files, generated signed documents, private keys, or payment screenshots.
 
 ## Team
 
