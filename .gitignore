@@ -1,0 +1,115 @@
+# Digital Trust Shield public repository guardrails
+#
+# This repository is intended to publish the product idea, architecture, demo
+# flow, and setup notes. The private signing, verification, watermarking, key
+# handling, and production integration code is intentionally not published.
+
+# Secrets, private keys, Firebase credentials, and runtime configuration
+.env
+*.env
+backend/.env
+backend/secrets/
+backend/secure_private_keys/
+*private_key*
+*.pem
+*.key
+*.enc
+!.env.example
+!backend/.env.example
+
+# Core proprietary signing and verification engine
+# These files contain the RSA signing, perceptual fingerprinting, DCT
+# watermarking, PDF/video support, registry matching, and screenshot recovery
+# implementation. Keep them private; describe the approach in README/docs.
+app.py
+generate_keys.py
+secure_private_key.py
+sign_poster.py
+verify_poster.py
+watermark_embedder.py
+watermark_extractor.py
+utils.py
+pdf_support.py
+video_support.py
+__init__.py
+
+# Full backend implementation
+# Public repo documents the API architecture only. The production FastAPI
+# implementation remains private to protect security-sensitive logic.
+backend/app/
+backend/uploads/
+backend/temp_uploads/
+backend/temp_outputs/
+
+# Full frontend and Android implementation
+# Public repo documents the interfaces and workflow only. The app source remains
+# private so API wiring and implementation details are not exposed.
+admin-portal/src/
+admin-portal/node_modules/
+admin-portal/dist/
+admin-portal/.env
+android-verifier/app/src/
+android-verifier/app/build/
+android-verifier/build/
+android-verifier/.gradle/
+android-verifier/local.properties
+
+# Generated runtime state and audit output
+official_registry.json
+audit_logs/
+demo_runtime/
+*.log
+
+# QA/test/generated images, PDFs, and screenshots
+qa_final_check/
+qa_matrix/
+qa_matrix_after_patch/
+qa_pdf/
+qa_quality/
+qa_real_images/
+qa_screenshot/
+qa_screenshot_registry/
+qa_tune/
+qa_tune_rep/
+
+# Media/demo artifacts that are large or may contain personal/payment data
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.jpeg
+*.jpg
+*.png
+*.pdf
+*.PDF
+!docs/**/*.png
+!docs/**/*.jpg
+
+# Python and build outputs
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local backup folders
+.private_key_backups/
+.safe_publish_*/
+.remote_probe
+public_github_release/
