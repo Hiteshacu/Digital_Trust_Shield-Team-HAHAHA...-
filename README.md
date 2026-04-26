@@ -129,6 +129,18 @@ This GitHub version is designed for public demonstration. It intentionally exclu
 
 See [docs/PUBLICATION_POLICY.md](docs/PUBLICATION_POLICY.md) for details.
 
+## Public Code Samples
+
+This repository includes a small public-safe code slice so reviewers can see the project shape without exposing the sensitive cryptographic engine:
+
+| File | Purpose |
+| --- | --- |
+| `examples/backend_api_skeleton/main.py` | FastAPI route skeleton for health, signing, verification, and chatbot APIs |
+| `examples/backend_api_skeleton/schemas.py` | Public request/response DTO contracts |
+| `examples/android_verifier_shell/MainActivity.kt` | Android Compose shell showing verification and chatbot tabs |
+
+The private implementation files that perform RSA signing, DCT watermark embedding/extraction, screenshot recovery, and key handling are intentionally omitted.
+
 ## Tech Stack
 
 | Layer | Technology |
