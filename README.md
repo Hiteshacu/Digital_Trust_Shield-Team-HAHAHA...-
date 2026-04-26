@@ -24,7 +24,7 @@ Digital Trust Shield solves this by attaching an invisible cryptographic proof t
 - Android verifier app for public users.
 - Firebase Firestore for authorities, public keys, signed-document metadata, logs, and audit records.
 - Local file storage fallback for signed outputs when Firebase Storage is unavailable.
-- AI chatbot assistant using Tavily web search and Groq summarization.
+- AI chatbot assistant using Tavily web search and Gemini summarization.
 - Voice input and multilingual chatbot support for English, Kannada, and Hindi.
 
 ## Architecture
@@ -44,7 +44,7 @@ flowchart LR
     Android --> Speech["Android Speech Recognizer"]
 
     API --> Tavily["Tavily Web Search"]
-    API --> Groq["Groq LLM Summary"]
+    API --> Gemini["Gemini LLM Summary"]
 
     Firestore --> Android
 ```
@@ -169,7 +169,7 @@ MASTER_KEY=your_fernet_master_key
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=admin123
 TAVILY_API_KEY=your_tavily_key
-GEMINI_API_KEY=your_groq_key
+GEMINI_API_KEY=your_gemini_key
 GEMINI_MODEL=your_gemini_model
 ```
 
